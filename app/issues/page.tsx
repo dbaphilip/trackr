@@ -1,7 +1,7 @@
-export default function Home() {
+export default function IssuesPage() {
   return (
     <div className="mt-5 container">
-      <h1>Dashboard</h1>
+      <h1>Issues</h1>
     </div>
   );
 }
