@@ -3,6 +3,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AiFillBug } from "react-icons/ai";
 
 export default function Navbar() {
   const currentPath = usePathname();
@@ -20,7 +21,9 @@ export default function Navbar() {
           className="brand d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"
         >
           {/* Brand */}
-          Trackr
+          Tr
+          <AiFillBug size={35} />
+          ckr
         </a>
         <ul className="fs-2 nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
           {links.map((link) => (
