@@ -7,6 +7,7 @@
 
 body {
   color: var(--black);
+  margin-bottom: 7rem;
   /* font-size: 200%; */
 }
 
@@ -23,4 +24,15 @@ a {
 .shadow-primary {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+
+.shadow-secondary {
+  box-shadow: 3px 1px 0 2px var(--black), 0 -1px 0 2px var(--black);
+}
+
+.issue-card > div {
+  height: 200px;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 1rem;
 }
