@@ -1,7 +1,9 @@
 import prisma from "@/prisma/client";
-import { notFound } from "next/navigation";
-import IssueStatusBadge from "../IssueStatusBadge";
 import delay from "delay";
+import { notFound } from "next/navigation";
+import EditIssueButton from "./EditIssueButton";
+import IssueDetailsDescription from "./IssueDetailsDescription";
+import IssueDetailsTitle from "./IssueDetailsTitle";
 
 interface Props {
   params: { id: string };
@@ -22,24 +24,21 @@ export default async function IssueDetailsPage({ params }: Props) {
     <div className="mt-5 container">
       <div className="row">
         <div className="col-md-6">
-          <h1 style={{ fontSize: "4rem" }}> {issue.title} </h1>
+          <IssueDetailsTitle issue={issue} />
 
-          <div className="d-flex justify-content-between">
-            <span className="fs-3">
-              <IssueStatusBadge status={issue.status} />
-            </span>
-
-            <span className="fs-2">{issue.createdAt.toLocaleDateString()}</span>
+          <div className="row">
+            <div className="col">
+              <div className="mt-5 d-flex justify-content-end">
+                <EditIssueButton issueId={issue.id} />
+              </div>
+            </div>
           </div>
         </div>
         {/* col */}
 
         <div className="col-md-6">
           <div className="shadow-secondary">
-            <div
-              className="p-2 fs-2"
-              dangerouslySetInnerHTML={{ __html: issue.description }}
-            ></div>
+            <IssueDetailsDescription issue={issue} />
           </div>
         </div>
         {/* col */}

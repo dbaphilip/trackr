@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Gochi_Hand } from "next/font/google";
+import { Bricolage_Grotesque, Gochi_Hand } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.css";
 import "./globals.css";
 import Navbar from "./Navbar";
 
 const gochi = Gochi_Hand({
   weight: "400",
+  subsets: ["latin"],
+});
+
+const brico = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 

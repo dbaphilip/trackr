@@ -7,8 +7,12 @@
 
 body {
   color: var(--black);
-  margin-bottom: 7rem;
+  margin-bottom: 11rem;
   /* font-size: 200%; */
+}
+
+.brico {
+  font-family: "bricolage grotesque";
 }
 
 a {
@@ -35,4 +39,12 @@ a {
   justify-content: space-between;
   flex-direction: column;
   padding: 1rem;
+}
+
+.issue-card h2 a:hover {
+  color: saddlebrown;
+}
+
+.issue-description p + p {
+  margin-top: 3rem;
 }
