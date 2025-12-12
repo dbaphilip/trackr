@@ -3,6 +3,7 @@ import { Bricolage_Grotesque, Gochi_Hand } from "next/font/google";
 import "bootstrap/dist/css/bootstrap.css";
 import "./globals.css";
 import Navbar from "./Navbar";
+import BootstrapClient from "./BootstrapClient";
 
 const gochi = Gochi_Hand({
   weight: "400",
@@ -28,6 +29,7 @@ export default function RootLayout({
       <body className={`${gochi.className}`}>
         <Navbar />
         {children}
+        <BootstrapClient />
       </body>
     </html>
   );

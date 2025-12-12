@@ -51,7 +51,7 @@ export default function Navbar() {
             aria-label="Search"
           />
         </form>
-        <div className="dropdown text-end">
+        <div className="fs-2 dropdown text-end">
           <a
             href="#"
             className="d-block link-body-emphasis text-decoration-none dropdown-toggle"
@@ -63,10 +63,10 @@ export default function Navbar() {
               alt="mdo"
               width={48}
               height={48}
-              className="rounded-circle"
+              className="shadow-secondary rounded-circle"
             />
           </a>
-          <ul className="dropdown-menu text-small">
+          <ul className="fs-2 dropdown-menu text-small">
             <li>
               <a className="dropdown-item" href="#">
                 New project...
