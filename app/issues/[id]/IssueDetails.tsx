@@ -8,6 +8,7 @@ import DeleteIssueButton from "./DeleteIssueButton";
 import DeleteIssueErrorAlert from "./DeleteIssueErrorAlert";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import AssigneeSelector from "./AssigneeSelector";
 
 interface Props {
   issue: Issue;
@@ -27,7 +28,13 @@ export default function IssueDetails({ issue }: Props) {
 
           {status == "authenticated" && (
             <div className="row">
-              <div className="col">
+              <div className="col-6">
+                <div className="mt-5">
+                  <AssigneeSelector />
+                </div>
+              </div>
+
+              <div className="col-6">
                 <div className="mt-5 d-flex justify-content-end">
                   <EditIssueButton issueId={issue.id} />
                 </div>
