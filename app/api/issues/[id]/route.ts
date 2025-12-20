@@ -1,6 +1,8 @@
+import authOptions from "@/app/auth/authOptions";
 import { issueSchema } from "@/app/validationSchemas";
 import prisma from "@/prisma/client";
 import delay from "delay";
+import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
 interface Props {
@@ -12,6 +14,10 @@ export async function PUT(
   context: { params: Promise<{ id: string }> }
 ) {
   //
+  const session = await getServerSession(authOptions);
+
+  if (!session) return NextResponse.json({}, { status: 401 });
+
   const { id } = await context.params;
   const body = await req.json();
 
@@ -38,6 +44,11 @@ export async function DELETE(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
 ) {
+  //
+  const session = await getServerSession(authOptions);
+
+  if (!session) return NextResponse.json({}, { status: 401 });
+
   const { id } = await context.params;
 
   await delay(3000);

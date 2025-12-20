@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./globals.css";
 import Navbar from "./Navbar";
 import BootstrapClient from "./BootstrapClient";
+import AuthProvider from "./auth/Provider";
 
 const gochi = Gochi_Hand({
   weight: "400",
@@ -27,9 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${gochi.className}`}>
-        <Navbar />
-        {children}
-        <BootstrapClient />
+        <AuthProvider>
+          <Navbar />
+          {children}
+          <BootstrapClient />
+        </AuthProvider>
       </body>
     </html>
   );
