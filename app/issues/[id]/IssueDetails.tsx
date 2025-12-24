@@ -17,7 +17,7 @@ interface Props {
 export default function IssueDetails({ issue }: Props) {
   //
   const { status } = useSession();
-  //
+
   const [deleteError, setDeleteError] = useState(false);
   //
   return (
@@ -30,7 +30,7 @@ export default function IssueDetails({ issue }: Props) {
             <div className="row">
               <div className="col-6">
                 <div className="mt-5">
-                  <AssigneeSelector />
+                  <AssigneeSelector issue={issue} />
                 </div>
               </div>
 

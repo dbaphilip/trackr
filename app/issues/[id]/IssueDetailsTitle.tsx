@@ -18,6 +18,8 @@ export default function IssueDetailsTitle({ issue }: Props) {
 
         <span className="fs-2">{issue.createdAt.toLocaleDateString()}</span>
       </div>
+
+      {/* {issue.userId && <div className="mt-5 mb-2">{issue.userId}</div>} */}
     </>
   );
 }
