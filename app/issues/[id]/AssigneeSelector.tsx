@@ -12,16 +12,7 @@ export default function AssigneeSelector({ issue }: Props) {
   //
   const [assignedUser, setAssignedUser] = useState(issue.userId || "");
 
-  const {
-    data: users,
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["users"],
-    queryFn: () => axios.get("/api/users").then((res) => res.data),
-    staleTime: 10 * 60 * 1000, // 10 mins
-    retry: 3,
-  });
+  const { data: users, isLoading, error } = useUsers();
 
   const assignIssueToUser = (userId: string) => {
     axios
@@ -60,4 +51,13 @@ export default function AssigneeSelector({ issue }: Props) {
       />
     </>
   );
+}
+
+function useUsers() {
+  return useQuery({
+    queryKey: ["users"],
+    queryFn: () => axios.get("/api/users").then((res) => res.data),
+    staleTime: 60 * 60 * 1000, // 60 mins
+    retry: 3,
+  });
 }
