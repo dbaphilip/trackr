@@ -1,11 +1,9 @@
-import IssueActions from "./IssueActions";
-
 export default function LoadingIssuesPage() {
   const issues = [1, 2, 3, 4, 5];
 
   return (
     <div className="mt-5 container">
-      <IssueActions />
+      {/* <IssueActions /> */}
 
       <div className="mt-5 row">
         {issues.map((issue) => (

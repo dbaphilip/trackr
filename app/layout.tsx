@@ -1,18 +1,18 @@
+import "bootstrap/dist/css/bootstrap.css";
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Gochi_Hand } from "next/font/google";
-import "bootstrap/dist/css/bootstrap.css";
+import AuthProvider from "./auth/Provider";
+import BootstrapClient from "./BootstrapClient";
 import "./globals.css";
 import Navbar from "./Navbar";
-import BootstrapClient from "./BootstrapClient";
-import AuthProvider from "./auth/Provider";
 import QueryClientProvider from "./QueryClientProvider";
 
-const gochi = Gochi_Hand({
-  weight: "400",
+const brico = Bricolage_Grotesque({
   subsets: ["latin"],
 });
 
-const brico = Bricolage_Grotesque({
+const gochi = Gochi_Hand({
+  weight: "400",
   subsets: ["latin"],
 });
 

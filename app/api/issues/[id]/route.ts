@@ -5,10 +5,6 @@ import delay from "delay";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 
-interface Props {
-  params: { id: string };
-}
-
 export async function PUT(
   req: NextRequest,
   context: { params: Promise<{ id: string }> }
