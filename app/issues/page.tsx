@@ -23,8 +23,13 @@ export default async function IssuesPage(context: {
 
   const validStatus = statuses.includes(status) ? status : undefined;
 
+  const ordering = columns.map((column) => column.value).includes(orderBy)
+    ? { [orderBy]: "asc" }
+    : undefined;
+
   const issues = await prisma.issue.findMany({
     where: { status: validStatus },
+    orderBy: ordering,
   });
   await delay(3000);
 
