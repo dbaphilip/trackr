@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Status } from "../generated/prisma/enums";
 
 export default function IssueStatusFilter() {
@@ -12,11 +12,20 @@ export default function IssueStatusFilter() {
   ];
 
   const router = useRouter();
+  const searchParams = useSearchParams();
   //
   return (
     <select
+      value={searchParams.get("status") || undefined}
       onChange={(e) => {
-        const query = e.target.value ? `?status=${e.target.value}` : "";
+        const params = new URLSearchParams();
+
+        if (e.target.value) params.append("status", e.target.value);
+
+        if (searchParams.get("orderBy"))
+          params.append("orderBy", searchParams.get("orderBy")!);
+
+        const query = params.size ? `?${params.toString()}` : undefined;
 
         router.push(`/issues${query}`);
       }}
